@@ -1,0 +1,52 @@
+dist: trusty
+sudo: required
+
+language: generic
+
+cache: apt
+
+env:
+  global:
+    - PANDOC_VERSION=2.0.3
+    - PANDOC_CROSSREF_VERSION=0.3.0.0-beta3
+
+addons:
+  apt:
+    packages:
+      - latex-xcolor
+      - lmodern
+      - make
+      - texlive-fonts-extra
+      - texlive-fonts-recommended
+      - texlive-lang-french
+      - texlive-latex-extra
+      - texlive-math-extra
+      - texlive-xetex
+
+install:
+  - wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb -O pandoc.deb
+  - sudo dpkg -i pandoc.deb
+  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/linux-ghc8-pandoc-2-0.tar.gz
+  - tar xf linux-ghc8-pandoc-2-0.tar.gz
+  - sudo mv pandoc-crossref /usr/local/bin
+
+script:
+  - make all
+
+after_success:
+  - >
+    test "${TRAVIS_PULL_REQUEST}" = "false" \
+      && test "${TRAVIS_BRANCH}" = "master" \
+      && ( \
+        mkdir build
+        cp rapport.pdf build
+        cd build
+        echo "<!DOCTYPE html><title>Rapport Technique</title><h1><a href='rapport.pdf'>Télécharger le rapport technique</a> (PDF)</h1>" > index.html
+        git init
+        git config user.name "TravisCI"
+        git config user.email "travis@he-arc.test"
+        git add .
+        git commit -m "Deployed to github pages"
+        git push -f -q "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}" master:gh-pages
+      ) \
+      || echo ":-)"
