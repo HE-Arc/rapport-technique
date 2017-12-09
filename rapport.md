@@ -83,7 +83,7 @@ Parmi ceux-ci, les gros morceaux requièrent un gros investissement en terme de 
 
 ## Markdown
 
-L'idée est de reposer sur un format de fichier textuel, similaire à HTML mais avec un syntaxe plus légère. _Markdown_ est inspiré d'un formalisme apparu _de facto_ dans les listes de diffusion d'e-mails.
+L'idée est de reposer sur un format de fichier textuel, similaire à HTML mais avec une syntaxe plus légère. _Markdown_ est inspiré d'un formalisme apparu _de facto_ dans les listes de diffusion d'e-mails.
 
 Ce format semi-structuré est devenu au fil des ans le favori des *geeks*. HTML étant trop fastidieux, ils n'ont eu de cesse d'imaginer des alternatives pour permettre l'édition de pages web au plus grand nombre, notamment au travers des *wikiwikiwebs* (ou simplement *wikis*), tel que _Wikipedia_.
 
