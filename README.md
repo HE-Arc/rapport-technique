@@ -6,6 +6,10 @@ Ce document présente sommairement comment construire un document respectant les
 
 [Télécharger au format PDF](https://he-arc.github.io/rapport-technique/rapport.pdf)
 
+## Alternatives
+
+- [Maël Pedretti's TechnicalReport](https://github.com/73VW/TechnicalReport), supportant le format _ReStructured Text_ (`.rst`) en entrée.
+
 ## Remerciements
 
 - [Julien M'Poy](https://github.com/groovytron/)
