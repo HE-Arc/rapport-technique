@@ -8,7 +8,8 @@ Ce document présente sommairement comment construire un document respectant les
 
 ## Alternatives
 
-- [Maël Pedretti's TechnicalReport](https://github.com/73VW/TechnicalReport), supportant le format _ReStructured Text_ (`.rst`) en entrée.
+- [Maël Pedretti's TechnicalReport](https://github.com/73VW/TechnicalReport), supportant le format _ReStructured Text_ (`.rst`) en entrée;
+- [Jake Zimmerman's Pandoc Starter](https://github.com/jez/pandoc-starter), et [l'article associé](https://blog.jez.io/reach-for-markdown/).
 
 ## Remerciements
 
