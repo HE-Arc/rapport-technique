@@ -27,7 +27,7 @@ install:
   - wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb -O pandoc.deb
   - sudo dpkg -i pandoc.deb
   - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/linux-ghc8-pandoc-2-1.tar.gz
-  - tar xf linux-ghc8-pandoc-2-1.tar.gz
+  - tar xf linux-ghc82-pandoc-2-1.tar.gz
   - sudo mv pandoc-crossref /usr/local/bin
 
 script:
