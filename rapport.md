@@ -231,12 +231,12 @@ Les versions fournies avec Ubuntu Xenial (16.04) sont un peu vieilles. Une alter
 
 ```bash
 $ wget https://github.com/jgm/pandoc/releases\
-> /download/2.0.3/pandoc-2.0.3-1-amd64.deb
+> /download/2.1.3/pandoc-2.1.3-1-amd64.deb
 
-$ sudo dpkg -i pandoc-2.0.3-1-amd64.deb
+$ sudo dpkg -i pandoc-2.1.3-1-amd64.deb
 
 $ pandoc -v
-pandoc 2.0.3
+pandoc 2.1.3
 ...
 ```
 
