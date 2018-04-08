@@ -70,7 +70,7 @@ Cette approche a été utilisée pour le support du cours de troisième année [
 
 ## Rapport technique
 
-Selon les directives de l'école [@arc2017], les difficultés d'un rapport technique au niveau de sa structure sont de réaliser correctement les éléments suivants :
+Selon les directives de l'école [@arc2017], les difficultés d'un rapport technique au niveau de sa structure sont de réaliser correctement les éléments suivants:
 
 - page de titre;
 - table des matières;

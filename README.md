@@ -8,7 +8,8 @@ Ce document présente sommairement comment construire un document respectant les
 Le rapport a été généré selon deux styles, visualisez les PDF:
 
 1. [classe `scrreprt` et polices Linux Libertine](https://he-arc.github.io/rapport-technique/rapport.pdf)
-2. [classe `report` et polices TeX Gyre](https://he-arc.github.io/rapport-technique/rapport-gyre.pdf)
+2. [classe `scrreprt` et polices ChromeOS](https://he-arc.github.io/rapport-technique/rapport-cros.pdf)
+3. [classe `report` et polices TeX Gyre](https://he-arc.github.io/rapport-technique/rapport-gyre.pdf)
 
 ## Alternatives
 
