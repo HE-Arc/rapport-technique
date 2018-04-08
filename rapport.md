@@ -94,12 +94,14 @@ Ce format semi-structuré est devenu au fil des ans le favori des *geeks*. HTML 
 
 
 ```markdown
-# h1 (titre 1)
-## h2
-### h3
-#### h4
-##### h5
-###### h6
+<!-- ceci est un commentaire -->
+
+# Titre 1
+## Titre 2
+### Titre 3
+#### Titre 4
+##### Titre 5
+###### Titre 6
 
 *emphase* ou _emphase_ (affiché en italique)
 
