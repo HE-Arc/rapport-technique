@@ -42,6 +42,7 @@ jobs:
       if: branch = master
       script: |
         (
+          make all
           mkdir build
           cp *.pdf build
           cd build
