@@ -9,7 +9,7 @@ date: \today
 papersize: a4
 
 # Modèle
-documentclass: scrreprt
+#documentclass: scrreprt
 documentoptions: twoside
 
 # Styles
@@ -19,9 +19,9 @@ colorlinks: darkblue
 links-as-notes: true
 numbersections: true
 
-mainfont: Linux Libertine O
-sansfont: Linux Biolinum O
-monofont: Inconsolata
+#mainfont: Linux Libertine O
+#sansfont: Linux Biolinum O
+#monofont: Inconsolata
 monofontoptions: Scale=.8
 
 # Table des matières
@@ -51,6 +51,7 @@ abstract: |
 # https://tex.stackexchange.com/questions/7546/how-to-get-latex-symbol-in-document/7549#7549
 header-includes:
 - |
+  \usepackage{lmodern}
   \usepackage{xspace}
   \usepackage{xltxtra}
   \let\tex\TeX
