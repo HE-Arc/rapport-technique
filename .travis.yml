@@ -7,8 +7,8 @@ cache: apt
 
 env:
   global:
-    - PANDOC_VERSION=2.1.3
-    - PANDOC_CROSSREF_VERSION=0.3.1.0
+    - PANDOC_VERSION=2.2.1
+    - PANDOC_CROSSREF_VERSION=0.3.2.0
 
 addons:
   apt:
@@ -30,8 +30,8 @@ addons:
 install:
   - wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb -O pandoc.deb
   - sudo dpkg -i pandoc.deb
-  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/linux-ghc82-pandoc21.tar.gz
-  - tar xf linux-ghc82-pandoc21.tar.gz
+  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/linux-ghc84-pandoc22.tar.gz
+  - tar xf linux-ghc84-pandoc22.tar.gz
   - sudo mv pandoc-crossref /usr/local/bin
 
 jobs:
