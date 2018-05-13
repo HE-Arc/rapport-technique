@@ -14,7 +14,10 @@ documentoptions: twoside
 
 # Styles
 fontsize: 12pt
-colorlinks: darkblue
+colorlinks: true
+linkcolor: Blue
+citecolor: MidnightBlue
+urlcolor: MidnightBlue
 
 links-as-notes: true
 numbersections: true
