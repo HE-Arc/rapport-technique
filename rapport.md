@@ -63,7 +63,7 @@ header-includes:
 
 # Introduction
 
-Traditionnellement, les outils d'édition de rapport privilégiés des étudiants sont _Microsoft Word_ ou _LibreOffice Writer_. D'aucuns, plus courageux, se lancent dans \LaTeX\xspace à l'aide d'un éditeur riche comme [_LyX_](https://www.lyx.org/) ou, l'éditeur en ligne qu'est [_ShareLaTeX_](https://www.sharelatex.com/).
+Traditionnellement, les outils d'édition de rapport privilégiés des étudiants sont _Microsoft Word_ ou _LibreOffice Writer_. D'aucuns, plus courageux, se lancent dans \LaTeX à l'aide d'un éditeur riche comme [_LyX_](https://www.lyx.org/) ou, l'éditeur en ligne qu'est [_ShareLaTeX_](https://www.sharelatex.com/).
 
 L'approche présentée ici se place entre ces deux univers. _Markdown_ est un format très facile à prendre en main, partagés, et [_pandoc_][pandoc] offre une conversion vers PDF qui fonctionne. Les limitations de _Markdown_ impliquent de recourir à d'autres outils pour gérer la bibliographie ou les références.
 
@@ -184,13 +184,13 @@ $ man pandoc
 
 ### Alternatives et variantes
 
-S'il est possible de tout faire avec *Pandoc*, un usage intermédiaire est envisageable où le squelette du rapport est réalisé avec \LaTeX\xspace et le contenu des différentes sections écrit en Markdown pour des raisons de simplicité. Un template pour la HES-SO a été créé par [Marc Demierre](https://github.com/mdemierre/hesso-latextemplate-thesis) et peut servir de base.
+S'il est possible de tout faire avec *Pandoc*, un usage intermédiaire est envisageable où le squelette du rapport est réalisé avec \LaTeX et le contenu des différentes sections écrit en Markdown pour des raisons de simplicité. Un template pour la HES-SO a été créé par [Marc Demierre](https://github.com/mdemierre/hesso-latextemplate-thesis) et peut servir de base.
 
 [Sphinx][sphinx] est une bonne alternative si le but est de produire une documentation technique en lien avec un code source.
 
 ## Installation
 
-Se lancer dans la production de document PDF avec \LaTeX\xspace demande de télécharger la moitié d'Internet et peut être déroutant.
+Se lancer dans la production de document PDF avec \LaTeX demande de télécharger la moitié d'Internet et peut être déroutant.
 
 La suite des opérations est prévue pour fonctionner sous Ubuntu ainsi que Ubuntu sous Windows (aussi nommé WSL (*Windows Subsystem for Linux*) disponible sous Windows 10 via le _Store_). Elle a été testée dans l'environnement suivant:
 
@@ -300,7 +300,7 @@ pagesize: A4
 
 ### Table des matières
 
-Le format \LaTeX\xspace contient des macros permettant de produire une superbe table des matières. Il suffit de l'activer dans le prologue.
+Le format \LaTeX contient des macros permettant de produire une superbe table des matières. Il suffit de l'activer dans le prologue.
 
 ```yaml
 ---
@@ -311,7 +311,7 @@ toc-depth: 5
 
 ### Mise en forme
 
-Avec quelques options de base, il est déjà possible d'obtenir un résultat intéressant. Pour aller plus loin, s'intéresser au fonctionnement des templates \LaTeX\xspace devient indispensable.
+Avec quelques options de base, il est déjà possible d'obtenir un résultat intéressant. Pour aller plus loin, s'intéresser au fonctionnement des templates \LaTeX devient indispensable.
 
 ```yaml
 ---
@@ -344,7 +344,7 @@ Sous GNU/Linux, les polices sont généralement installées dans `/usr/share/fon
 
 ## Bibliographie avec _pandoc-citeproc_
 
-Le format \LaTeX\xspace possède un outil, ou de nombreux outils, permettant de gérer les bibliographies. _pandoc-citeproc_ en supporte plusieurs dont Bib\LaTeX, le format généralement utilisé avec \LaTeX.
+Le format \LaTeX possède un outil, ou de nombreux outils, permettant de gérer les bibliographies. _pandoc-citeproc_ en supporte plusieurs dont Bib\LaTeX, le format généralement utilisé avec \LaTeX.
 
 ```yaml
 ---
@@ -425,7 +425,7 @@ lot: true   # liste des tableaux
 ---
 ```
 
-ou, en \LaTeX\xspace directement pour contrôler leur place et/ou leur ordre dans le document.
+ou, en \LaTeX directement pour contrôler leur place et/ou leur ordre dans le document.
 
 ```latex
 \listoffigures
@@ -496,7 +496,7 @@ return {
 
 Réaliser le rapport technique d'un projet de semestre, de diplôme, seul ou en groupe est un gros investissement en énergie. C'est parfois l'élément du projet qui est sous-estimé par les étudiants. _Markdown_ est un format suffisamment simple pour permettre la prise de note tout au long du projet. Il est possible d'en faire l'édition en ligne aisément voire même de collaborer en même temps sur un document.
 
-Pandoc est ensuite la baguette magique transformant tout ceci en un document de bonne facture. Avec l'avantage d'être progressif. Un document \LaTeX\xspace demande un investissement relativement important d'apprentissage, mais permet beaucoup plus d'options. Et à l'inverse Microsoft Word est trop laxiste, n'imposant pas une structure forte dès le départ rendant les modifications futures complexes.
+Pandoc est ensuite la baguette magique transformant tout ceci en un document de bonne facture. Avec l'avantage d'être progressif. Un document \LaTeX demande un investissement relativement important d'apprentissage, mais permet beaucoup plus d'options. Et à l'inverse Microsoft Word est trop laxiste, n'imposant pas une structure forte dès le départ rendant les modifications futures complexes.
 
 Le but de ce document est de servir de base pour correspondre aux attentes de la Haute-École Arc. Il est améliorable sous de nombreux aspects et reste suffisamment ouvert afin de permettre un peu de créativité.
 
