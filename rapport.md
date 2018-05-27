@@ -57,6 +57,8 @@ header-includes:
   \usepackage{lmodern}
   \usepackage{xspace}
   \usepackage{xltxtra}
+  \let\tex\TeX
+  \renewcommand{\TeX}{\tex\xspace}
 ---
 
 \listoflistings
