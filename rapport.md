@@ -462,33 +462,16 @@ $ pandoc rapport.md \
 Sans ceci, tous les exemples contenant ces éléments de ponctuation seraient cassés. C'est un usage très avancé, que les plus informaticiens d'entre vous sauront dompter.
 
 ```{#lst:english .lua .numberLines caption="english.lua"}
-local lang = 'english'
-
-local before = pandoc.RawInline(
-  'tex', '\\begin{otherlanguage}{' .. lang .. '}')
-local after = pandoc.RawInline(
-  'tex', '\\end{otherlanguage}')
+local lang = 'en'
 
 return {
   {
-    Code = function(code)
-      return {before, code, after}
+    Code = function(el)
+      return pandoc.Span(el, pandoc.Attr("", {}, {lang = lang}))
     end,
 
-    CodeBlock = function(code_block)
-      return {
-        pandoc.Para({before}),
-        code_block,
-        pandoc.Para({after})
-      }
-    end,
-
-    RawBlock = function(raw_block)
-      return {
-        pandoc.Para({before}),
-        raw_block,
-        pandoc.Para({after})
-      }
+    CodeBlock = function(el)
+      return pandoc.Div(el, pandoc.Attr("", {}, {lang = lang}))
     end,
   }
 }
