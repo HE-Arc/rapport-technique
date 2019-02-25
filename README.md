@@ -14,7 +14,8 @@ Le rapport a été généré selon deux styles, visualisez les PDF:
 ## Alternatives
 
 - [Maël Pedretti's TechnicalReport](https://github.com/73VW/TechnicalReport), supportant le format _ReStructured Text_ (`.rst`) en entrée;
-- [Jake Zimmerman's Pandoc Starter](https://github.com/jez/pandoc-starter), et [l'article associé](https://blog.jez.io/reach-for-markdown/).
+- [Jake Zimmerman's Pandoc Starter](https://github.com/jez/pandoc-starter), et [l'article associé](https://blog.jez.io/reach-for-markdown/);
+- [Matthias Endler's Pandoc Memoir](https://github.com/mre/pandoc-memoir), dont le but étant d'inclure du R.
 
 ## Remerciements
 
