@@ -1,0 +1,30 @@
+image: laurenss/texlive-full
+
+variables:
+  PANDOC_VERSION: "2.7.3"
+  PANDOC_CROSSREF_VERSION: "0.3.4.1a"
+  CROSSREF_PANDOC_VERSION: "2_7_3"
+
+build:
+  artifacts:
+    paths:
+      - "*.pdf"
+  script:
+  - apt-get update -q
+  - apt-get install -qy
+    curl
+    fonts-croscore
+    fonts-crosextra-carlito
+    fonts-inconsolata
+    fonts-texgyre
+    lmodern
+    tex-gyre
+  - curl --fail --remote-name -L
+    https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb
+  - dpkg -i pandoc-${PANDOC_VERSION}-1-amd64.deb
+  - curl --fail --remote-name -L
+    https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/linux-pandoc_${CROSSREF_PANDOC_VERSION}.tar.gz
+  - tar xf linux-pandoc_${CROSSREF_PANDOC_VERSION}.tar.gz
+  - mv pandoc-crossref /usr/local/bin
+  - make all
+
