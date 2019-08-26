@@ -5,7 +5,12 @@ variables:
   PANDOC_CROSSREF_VERSION: "0.3.4.1a"
   CROSSREF_PANDOC_VERSION: "2_7_3"
 
+stages:
+  - build
+  - deploy
+
 build:
+  stage: build
   artifacts:
     paths:
       - "*.pdf"
@@ -28,3 +33,24 @@ build:
   - mv pandoc-crossref /usr/local/bin
   - make all
 
+deploy:
+  stage: deploy
+  dependencies:
+    - build
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+  script: |
+    (
+      mkdir public
+      cp *.pdf public
+      cd public
+      echo '<!DOCTYPE html><title>Rapport Technique</title>' > index.html
+      echo '<h1>Télécharger le rapport technique</h1>' >> index.html
+      echo '<p>Styles</p><ul>' >> index.html
+      echo '<li><a href="rapport.pdf">Koma + Linux Libertine</a>' >> index.html
+      echo '<li><a href="rapport-cros.pdf">Koma + Chrome OS</a>' >> index.html
+      echo '<li><a href="rapport-gyre.pdf">Simple + TeX Gyre</a>' >> index.html
+    )
