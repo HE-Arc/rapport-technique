@@ -33,7 +33,7 @@ build:
   - mv pandoc-crossref /usr/local/bin
   - make all
 
-deploy:
+pages:
   stage: deploy
   dependencies:
     - build
