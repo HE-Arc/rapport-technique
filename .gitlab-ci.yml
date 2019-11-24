@@ -1,9 +1,9 @@
 image: laurenss/texlive-full
 
 variables:
-  PANDOC_VERSION: "2.7.3"
-  PANDOC_CROSSREF_VERSION: "0.3.4.1a"
-  CROSSREF_PANDOC_VERSION: "2_7_3"
+  PANDOC_VERSION: "2.8"
+  PANDOC_CROSSREF_VERSION: "0.3.5.0"
+  CROSSREF_PANDOC_VERSION: "2_8"
 
 stages:
   - build
