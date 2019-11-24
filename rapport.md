@@ -493,7 +493,7 @@ La source de ce document se trouve sur <https://github.com/HE-Arc/rapport-techni
 
 IMMRID
 
-: Introduction, Matériel, Méthode, Résultats, Interprétation et Discussion. Méthode de structuration adaptée à un projet de recherche. 
+: Introduction, Matériel, Méthode, Résultats, Interprétation, et Discussion. Méthode de structuration adaptée à un projet de recherche.
 
 \LaTeX
 
@@ -505,11 +505,11 @@ Lua
 
 Python
 
-: Un langage de programmation impératif facile, ludique et populaire. <https://python.org>
+: Un langage de programmation impératif, facile, ludique, et populaire. <https://python.org>
 
 SPRI
 
-: Situation Problème Résolution et Informations. Une méthode permettant structurer un plan de présentation et introduite par Louis Timbal-Duclaux.
+: Situation, Problème, Résolution, et Informations. Une méthode permettant structurer un plan de présentation et introduite par Louis Timbal-Duclaux.
 
 WSL
 
