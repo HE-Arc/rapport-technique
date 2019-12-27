@@ -34,6 +34,7 @@ lof: true
 lot: true
 tblPrefix: tab
 lolTitle: Liste des extraits de code
+listingtitle: Extrait de code
 
 # Sources
 bibliography: bibliographie.bib
@@ -169,7 +170,7 @@ Ici, nous avons renseigné des informations permettant de construire la page de 
 
 ## Pandoc
 
-Un logiciel très puissant issu du temps libre d'un certain John MacFarlane, professeur de psychologie à l'université de Berkeley. Supportant pléthore de formats différents, il est capable de les convertir de l'un à l'autre selon la table ci-dessous (@tbl:input-output).
+Un logiciel très puissant issu du temps libre d'un certain John MacFarlane, professeur de psychologie à l'université de Berkeley, Californie. Supportant pléthore de formats différents, il est capable de les convertir de l'un à l'autre selon la table (@tbl:input-output).
 
 | entrée | sortie |
 |--------|--------|
@@ -199,9 +200,9 @@ La suite des opérations est prévue pour fonctionner sous Ubuntu ainsi que Ubun
 ```bash
 $ lsb_release -a
 Distributor ID: Ubuntu
-Description:    Ubuntu 16.04.3 LTS
-Release:        16.04
-Codename:       xenial
+Description:    Ubuntu 18.04.3 LTS
+Release:        18.04
+Codename:       bionic
 ```
 
 Depuis un terminal, installez quelques dépendances à l'aide d'`apt`.
@@ -213,7 +214,6 @@ $ sudo apt install \
     texlive-fonts-extra \
     texlive-lang-english \
     texlive-lang-french \
-    texlive-math-extra \
     texlive-xetex \
     ttf-mscorefonts-installer
 ```
@@ -226,40 +226,48 @@ Quoi est quoi?
 - `texlive-fonts-extra` plein de polices de caractères;
 - `texlive-lang-english` les bouts de code source seront en anglais;
 - `texlive-lang-french` notre contenu sera en français;
-- `texlive-math-extra` affichage des formules mathématiques;
 - `texlive-xetex` un meilleur support des polices et de l'Unicode;
 - `ttf-mscorefonts-installer` pour ceux qui veulent utiliser les polices Windows (Comic Sans, Impact, ...).
 
 ### Pandoc 2
 
-Les versions fournies avec Ubuntu Xenial (16.04) sont un peu vieilles. Une alternative est d'installer `pandoc` (et `pandoc-citeproc`) directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
+Les versions fournies avec Ubuntu Bionic (18.04) sont un peu vieilles. Une alternative est d'installer `pandoc` (et `pandoc-citeproc`) directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
 
 ```bash
-$ wget https://github.com/jgm/pandoc/releases\
-> /download/2.1.3/pandoc-2.1.3-1-amd64.deb
+$ pandoc -v
+pandoc 1.19.2.4
 
-$ sudo dpkg -i pandoc-2.1.3-1-amd64.deb
+$ sudo apt-get remove pandoc
+
+$ wget https://github.com/jgm/pandoc/releases\
+> /download/2.9.1/pandoc-2.9.1-1-amd64.deb
+
+$ sudo dpkg -i pandoc-2.9.1-1-amd64.deb
 
 $ pandoc -v
-pandoc 2.1.3
+pandoc 2.9.1
 ...
 ```
 
 **NB :** les exemples suivants partent du principe que vous avez installés _Pandoc_ version 2.
 
+### Édition avec VSCode
+
+L'éditeur de la société Microsoft [VS Code](https://code.visualstudio.com/) permet via l'extension [Remote WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) de travailler à l'intérieur de l'environnement GNU Linux. Hélas cette extension utilise du code propriétaire et ne peut fonctionner sous [VSCodium](https://github.com/VSCodium/vscodium).
+
 # Réalisation
 
-Une fois le langage de description _Markdown_ apprivoisé, il va s'agir de réussir la génération d'un document PDF. Puis nous y incluerons les éléments importants du rapport technique tels que la bibliographie, table des matières, les références, et la page de titre.
+Une fois le langage de description _Markdown_ apprivoisé, il ne plus qu'à générer un document PDF. Nous y incluerons ensuite les éléments importants du rapport technique tels que la bibliographie, table des matières, les références, et la page de titre.
 
 ## Le B.a.-ba
 
-À partir d'un document Markdown, ici nommé `rapport.md`, nous pouvons débuter.
+À partir d'un document Markdown, ici nommé `rapport.md`, nous pouvons débuter la conversion.
 
 ```bash
 $ pandoc rapport.md --to latex
 ```
 
-Le contenu est transformé selon le formalisme \LaTeX. Et seulement, le contenu. Le drapeau `--standalone` permet d'en faire un document complet.
+Le contenu est transformé selon le formalisme \LaTeX. Et seulement, le contenu. Le drapeau `--standalone` permet d'en faire un document complet comportant les entêtes et méta-données nécessaires.
 
 ```bash
 $ pandoc rapport.md \
@@ -281,12 +289,12 @@ Le détail de chaque drapeau:
 
 - `--standalone` ajoute les entête et pied au document. Sinon, seul le contenu est produit;
 - `--to latex` décrit que le format de sortie désiré est \LaTeX;
-- `--pdf-engine xelatex` pour un meilleur support des polices (OTF, TTF, etc.) et de l'Unicode;
+- `--pdf-engine xelatex` pour un meilleur support des polices (OTF, TTF, etc.) et de l'Unicode (caractères accentués);
 - `--output rapport.pdf` le nom du fichier de sortie.
 
 ### Page de titre
 
-_Markdown_ ne peut s'occuper que du contenu. Donc il est nécessaire de passer par le prologue _YAML_ du fichier.
+_Markdown_ ne s'occupant que du contenu, il est nécessaire de passer par le prologue _YAML_ du fichier pour renseigner les méta-données (données sur les données).
 
 ```yaml
 ---
@@ -302,7 +310,7 @@ pagesize: A4
 
 ### Table des matières
 
-Le format \LaTeX contient des macros permettant de produire une superbe table des matières. Il suffit de l'activer dans le prologue.
+Le format \LaTeX contient des macros (fonctions) permettant de produire une superbe table des matières. Son activation dans le prologue l'activera.
 
 ```yaml
 ---
@@ -317,7 +325,7 @@ Avec quelques options de base, il est déjà possible d'obtenir un résultat int
 
 ```yaml
 ---
-fontsize: 14pt
+fontsize: 12pt
 documentclass: scrreprt
 documentoptions: twoside
 numbersections: true
@@ -393,9 +401,9 @@ Dans un document scientifique, il est recommandé de numéroter et référencer 
 
 ```bash
 $ wget https://github.com/lierdakil/pandoc-crossref/releases\
-> /download/v0.3.0.0-beta3/linux-ghc8-pandoc-2-0.tar.gz
+> /download/v0.3.6.1a/linux-pandoc_2_9_1.tar.gz
 
-$ tar xf linux-ghc8-pandoc-2-0.tar.gz
+$ tar xf linux-pandoc_2_9_1.tar.gz
 $ sudo mv pandoc-crossref /usr/local/bin
 ```
 
@@ -431,7 +439,9 @@ ou, en \LaTeX directement pour contrôler leur place et/ou leur ordre dans le do
 
 ```latex
 \listoffigures
+
 \listoftables
+
 \listoflistings    # `lol` n'existe pas dans pandoc.
 ```
 
