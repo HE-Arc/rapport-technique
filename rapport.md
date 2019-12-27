@@ -68,9 +68,9 @@ header-includes:
 
 Traditionnellement, les outils d'édition de rapport privilégiés des étudiants sont _Microsoft Word_ ou _LibreOffice Writer_. D'aucuns, plus courageux, se lancent dans \LaTeX à l'aide d'un éditeur riche comme [_LyX_](https://www.lyx.org/) ou, l'éditeur en ligne qu'est [_ShareLaTeX_](https://www.sharelatex.com/).
 
-L'approche présentée ici se place entre ces deux univers. _Markdown_ est un format très facile à prendre en main, partagés, et [_pandoc_][pandoc] offre une conversion vers PDF qui fonctionne. Les limitations de _Markdown_ impliquent de recourir à d'autres outils pour gérer la bibliographie ou les références.
+L'approche présentée ici se place entre ces deux univers. _Markdown_ est un format très facile à prendre en main et intégrer dans un système de gestion de version. [_Pandoc_][pandoc] offre lui une conversion vers PDF qui fonctionne sans prise de tête. Les limitations de _Markdown_ vis-à-vis d'un éditeur riche impliquent de recourir à d'autres outils pour gérer la bibliographie ou les références.
 
-Cette approche a été utilisée pour le support du cours de troisième année [Développement Web](https://he-arc.github.io/slides-devweb/), ainsi que par d'anciens étudiants fraichement diplômés.
+À ma connaissance, cette approche a été utilisée pour le support du cours de troisième année [Développement Web](https://he-arc.github.io/slides-devweb/), ainsi que par d'anciens étudiants depuis diplômés.
 
 ## Rapport technique
 
@@ -81,16 +81,16 @@ Selon les directives de l'école [@arc2017], les difficultés d'un rapport techn
 - liste des figures, tableaux et/ou équations;
 - _abstract_, introduction et conclusion;
 - le fameux SPRI [@timbal1982communication], ou IMMRID (voir le [glossaire](#glossaire));
-- et la bibliographie.
+- ainsi que la bibliographie.
 
 
-Parmi ceux-ci, les gros morceaux requièrent un gros investissement en terme de rédaction. Mais également, un travail d'organisation et de documentation très fin. Si constituer une bibliographie via [Zotero](https://zotero.org/), [BibDesk](http://bibdesk.sourceforge.net/), ou autre, est relativement aisé; gérer les citations, références et formater le tout correctement peut être fastidieux. Tout comme documenter et référencer chaque image, équation ou table de données. Et c'est sans parler que c'est un travail de groupe dont il faut également coordonner les diverses contributions.
+Parmi ces éléments, les gros morceaux requièrent un investissement conséquent en terme de rédaction. Mais également, un travail d'organisation et de documentation très fin. Si constituer une bibliographie via [Zotero](https://zotero.org/), [BibDesk](http://bibdesk.sourceforge.net/), ou autre, est relativement aisé; gérer les citations, références et formater le tout correctement peut être fastidieux. Tout comme documenter et référencer chaque figure (ou image), équation ou table de données. Et c'est en occultant que c'est un travail de groupe dont il faut également coordonner les diverses contributions.
 
 ## Markdown
 
 L'idée est de reposer sur un format de fichier textuel, similaire à HTML mais avec une syntaxe plus légère. _Markdown_ est inspiré d'un formalisme apparu _de facto_ dans les listes de diffusion d'e-mails.
 
-Ce format semi-structuré est devenu au fil des ans le favori des *geeks*. HTML étant trop fastidieux, ils n'ont eu de cesse d'imaginer des alternatives pour permettre l'édition de pages web au plus grand nombre, notamment au travers des *wikiwikiwebs* (ou simplement *wikis*), tel que _Wikipedia_.
+Ce format semi-structuré est devenu au fil des ans le favori des *geeks*. HTML étant trop fastidieux, ils n'ont eu de cesse d'imaginer des alternatives pour permettre l'édition de pages web au plus grand nombre, notamment au travers des *wikiwikiwebs* (plus connus sous le nom de *wikis*), tel que _Wikipedia_.
 
 > _"A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions."_
 >
