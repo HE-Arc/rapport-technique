@@ -4,9 +4,9 @@ cache: apt
 
 env:
   global:
-    - PANDOC_VERSION=2.9.1
-    - PANDOC_CROSSREF_VERSION=0.3.6.1a
-    - CROSSREF_PANDOC_VERSION=2_9_1
+    - PANDOC_VERSION=2.9.2.1
+    - PANDOC_CROSSREF_VERSION=0.3.6.2
+    - CROSSREF_PANDOC_VERSION=2_9_2
 
 addons:
   apt:
