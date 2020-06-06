@@ -29,8 +29,8 @@ addons:
 install:
   - wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb -O pandoc.deb
   - sudo dpkg -i pandoc.deb
-  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/pandoc-crossref-Linux-${CROSSREF_PANDOC_VERSION}.tar.gz -O pandoc-crossref.tar.gz
-  - tar xf pandoc-crossref.tar.gz
+  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/pandoc-crossref-Linux-${CROSSREF_PANDOC_VERSION}.tar.xz -O pandoc-crossref.tar.xz
+  - tar xf pandoc-crossref.tar.xz
   - sudo mv pandoc-crossref /usr/local/bin
 
 jobs:
