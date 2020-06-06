@@ -47,7 +47,7 @@ pages:
       mkdir public
       cp *.pdf public
       cd public
-      echo '<!DOCTYPE html><title>Rapport Technique</title>' > index.html
+      echo '<!DOCTYPE html><meta charset=utf-8><title>Rapport Technique</title>' > index.html
       echo '<h1>Télécharger le rapport technique</h1>' >> index.html
       echo '<p>Styles</p><ul>' >> index.html
       echo '<li><a href="rapport.pdf">Koma + Linux Libertine</a>' >> index.html
