@@ -1,5 +1,7 @@
+ALL=rapport.pdf rapport-gyre.pdf rapport-cros.pdf
+
 .phony: all
-all: rapport.pdf rapport-gyre.pdf rapport-cros.pdf
+all: $(ALL)
 
 %.pdf: %.md
 	pandoc $^ \
@@ -44,3 +46,7 @@ all: rapport.pdf rapport-gyre.pdf rapport-cros.pdf
 		--variable sansfont="Tinos" \
 		--variable monofont="Cousine" \
 		--output $@
+
+.PHONY: clean
+clean:
+	rm -f $(ALL)
