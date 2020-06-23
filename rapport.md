@@ -200,9 +200,9 @@ La suite des opérations est prévue pour fonctionner sous Ubuntu ainsi que Ubun
 ```bash
 $ lsb_release -a
 Distributor ID: Ubuntu
-Description:    Ubuntu 18.04.3 LTS
-Release:        18.04
-Codename:       bionic
+Description:    Ubuntu 20.04 LTS
+Release:        20.04
+Codename:       focal
 ```
 
 Depuis un terminal, installez quelques dépendances à l'aide d'`apt`.
@@ -229,35 +229,35 @@ Quoi est quoi?
 - `texlive-xetex` un meilleur support des polices et de l'Unicode;
 - `ttf-mscorefonts-installer` pour ceux qui veulent utiliser les polices Windows (Comic Sans, Impact, ...).
 
-### Pandoc 2
+### Pandoc nightly
 
-Les versions fournies avec Ubuntu Bionic (18.04) sont un peu vieilles. Une alternative est d'installer `pandoc` (et `pandoc-citeproc`) directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
+Les versions fournies avec Ubuntu Focal (20.04) peuvent être un peu vieilles. Une alternative est d'installer `pandoc` (et `pandoc-citeproc`) directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
 
 ```bash
 $ pandoc -v
-pandoc 1.19.2.4
+pandoc 2.5
 
 $ sudo apt-get remove pandoc
 
 $ wget https://github.com/jgm/pandoc/releases\
-> /download/2.9.1/pandoc-2.9.1-1-amd64.deb
+> /download/2.9.1/pandoc-2.9.2.1-1-amd64.deb
 
-$ sudo dpkg -i pandoc-2.9.1-1-amd64.deb
+$ sudo dpkg -i pandoc-2.9.2.1-1-amd64.deb
 
 $ pandoc -v
-pandoc 2.9.1
+pandoc 2.9.2.1
 ...
 ```
 
-**NB :** les exemples suivants partent du principe que vous avez installés _Pandoc_ version 2.
+### Édition avec VS Code
 
-### Édition avec VSCode
+L'éditeur de la société Microsoft [VS Code](https://code.visualstudio.com/) permet via l'extension [Remote WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) de travailler à l'intérieur de l'environnement GNU Linux (@fig:vscode). Hélas cette extension utilise du code propriétaire et ne peut fonctionner sous [VSCodium](https://github.com/VSCodium/vscodium).
 
-L'éditeur de la société Microsoft [VS Code](https://code.visualstudio.com/) permet via l'extension [Remote WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) de travailler à l'intérieur de l'environnement GNU Linux. Hélas cette extension utilise du code propriétaire et ne peut fonctionner sous [VSCodium](https://github.com/VSCodium/vscodium).
+![Édition avec VS Code](./vscode.png){#fig:vscode}
 
 # Réalisation
 
-Une fois le langage de description _Markdown_ apprivoisé, il ne plus qu'à générer un document PDF. Nous y incluerons ensuite les éléments importants du rapport technique tels que la bibliographie, table des matières, les références, et la page de titre.
+Une fois le langage de description _Markdown_ apprivoisé, il ne manque plus qu'à générer un document PDF. Nous y incluerons ensuite les éléments importants du rapport technique tels que la bibliographie, la table des matières, les références, et la page de titre.
 
 ## Le B.a.-ba
 
@@ -267,7 +267,7 @@ Une fois le langage de description _Markdown_ apprivoisé, il ne plus qu'à gén
 $ pandoc rapport.md --to latex
 ```
 
-Le contenu est transformé selon le formalisme \LaTeX. Et seulement, le contenu. Le drapeau `--standalone` permet d'en faire un document complet comportant les entêtes et méta-données nécessaires.
+Le contenu est transformé selon le formalisme _latex_, généralement écrit \LaTeX. Et seulement, le contenu. Le drapeau `--standalone` permet d'en faire un document complet comportant les entêtes et méta-données nécessaires.
 
 ```bash
 $ pandoc rapport.md \
@@ -386,7 +386,7 @@ Un moyen simple de créer son fichier `.bib` (par exemple [@lst:bibliographie]) 
 
 Pandoc utilise le style dit _Chicago_ [@webster2017chicago] car très populaire dans les sciences humaines. Il ne l'est pas forcément au sein des sciences de l'ingénierie.
 
-Les styles de bibliographie sont nombreux et donc interchangeables d'une plateforme de publication à l'autre. [_CitationsStyles_](https://www.citationstyles.org) permet de décrire le format de la bibliographie et des citations. Vous trouverez des styles à choix sur le [_Zotero Style Repository_](https://www.zotero.org/styles/). Le format francophone et le style _ISO 690_ sont recommandés par l'école.
+Les styles de bibliographie sont nombreux et donc interchangeables d'une plateforme de publication à l'autre. [_CitationsStyles_](https://www.citationstyles.org) permet de décrire le format de la bibliographie et des citations. Vous trouverez des styles à choix sur le [_Zotero Style Repository_](https://www.zotero.org/styles/). Le format francophone et le style _ISO 690_ sont recommandés par la HES-SO.
 
 ```yaml
 ---
@@ -400,11 +400,20 @@ csl: iso690-author-date-fr.csl
 Dans un document scientifique, il est recommandé de numéroter et référencer toutes les figures, et tables de données. Une tâche qui est un peu fastidieuse. Elle devient presque aisée à l'aide d'un outil comme [_pandoc-crossref_](https://github.com/lierdakil/pandoc-crossref).
 
 ```bash
+# Pandoc 2.5
 $ wget https://github.com/lierdakil/pandoc-crossref/releases\
-> /download/v0.3.6.1a/linux-pandoc_2_9_1.tar.gz
+> /download/v0.3.4.2/linux-pandoc_2_7_3.tar.gz
+$ tar xf linux-pandoc_2_7_3.tar.gz
 
-$ tar xf linux-pandoc_2_9_1.tar.gz
-$ sudo mv pandoc-crossref /usr/local/bin
+# Pandoc 2.9.2.1
+$ wget https://github.com/lierdakil/pandoc-crossref/releases\
+> /download/v0.3.6.3/pandoc-crossref-Linux-2.9.2.1.tar.xz
+$ tar xf pandoc-crossref-Linux_2.9.2.1.tar.xz
+
+# Installation
+$ sudo mv pandoc-crossref /usr/local/bin/
+$ sudo mv pandoc-crossref.1 /usr/local/man/
+$ sudo mandb
 ```
 
 Il est important d'exécuter le filtre des références **avant** celui des citations.
@@ -469,7 +478,7 @@ $ pandoc rapport.md \
     ...
 ```
 
-Sans ceci, tous les exemples contenant ces éléments de ponctuation seraient cassés. C'est un usage très avancé, que les plus informaticiens d'entre vous sauront dompter.
+Sans ceci, tous les blocs de code source contenant ces éléments de ponctuation seraient cassés. C'est un usage très avancé, que les plus informaticiens d'entre vous sauront dompter.
 
 ```{#lst:english .lua .numberLines caption="english.lua"}
 local lang = 'en'
@@ -489,11 +498,11 @@ return {
 
 # Conclusion
 
-Réaliser le rapport technique d'un projet de semestre, de diplôme, seul ou en groupe est un gros investissement en énergie. C'est parfois l'élément du projet qui est sous-estimé par les étudiants. _Markdown_ est un format suffisamment simple pour permettre la prise de note tout au long du projet. Il est possible d'en faire l'édition en ligne aisément voire même de collaborer en même temps sur un document.
+Réaliser le rapport technique d'un projet de semestre, de diplôme, seul ou en groupe est un gros investissement en énergie. Il est parfois un élément du projet sous-estimé par les étudiants. _Markdown_ est un format suffisamment simple pour permettre la prise de notes tout au long du projet. Il est possible d'en faire l'édition en ligne aisément voire même de collaborer en même temps sur un document.
 
-Pandoc est ensuite la baguette magique transformant tout ceci en un document de bonne facture. Avec l'avantage d'être progressif. Un document \LaTeX demande un investissement relativement important d'apprentissage, mais permet beaucoup plus d'options. Et à l'inverse Microsoft Word est trop laxiste, n'imposant pas une structure forte dès le départ rendant les modifications futures complexes.
+Pandoc est ensuite la baguette magique transformant tout ceci en un document de bonne facture. L'avantage est d'être progressif dans le sens où on débute simplement sans se soucier de la mise en page future. Un document \LaTeX demande un investissement d'apprentissage relativement important même s'il permet beaucoup plus d'options. Et à l'inverse Microsoft Word est trop laxiste, n'imposant pas une structure forte dès le départ rendant les modifications futures complexes.
 
-Le but de ce document est de servir de base pour correspondre aux attentes de la Haute-École Arc. Il est améliorable sous de nombreux aspects et reste suffisamment ouvert afin de permettre un peu de créativité.
+Le but de ce document est de servir de base pour correspondre aux attentes de la Haute-École ARC. Il est améliorable sous de nombreux aspects et reste suffisamment ouvert permettant ainsi un peu de créativité.
 
 La source de ce document se trouve sur <https://github.com/HE-Arc/rapport-technique>. Faites-en bon usage!
 
@@ -523,7 +532,7 @@ SPRI
 
 WSL
 
-: _Windows Subsystem for Linux_ une plateforme permettant de faire fonctionner des logiciels GNU/Linux sur le système Windows sans passer par une machine virtuelle. <https://msdn.microsoft.com/en-us/commandline/wsl/about>
+: _Windows Subsystem for Linux_ une plateforme permettant de faire fonctionner des logiciels GNU/Linux sur le système Windows sans passer par une machine virtuelle. <https://docs.microsoft.com/en-us/windows/wsl/about>
 
 YAML
 
