@@ -235,17 +235,17 @@ Les versions fournies avec Ubuntu Focal (20.04) peuvent être un peu vieilles. U
 
 ```bash
 $ pandoc -v
-pandoc 2.5
+pandoc 2.8
 
 $ sudo apt-get remove pandoc
 
 $ wget https://github.com/jgm/pandoc/releases\
-> /download/2.9.1/pandoc-2.9.2.1-1-amd64.deb
+> /download/2.10.1/pandoc-2.10.1.1-1-amd64.deb
 
-$ sudo dpkg -i pandoc-2.9.2.1-1-amd64.deb
+$ sudo dpkg -i pandoc-2.10.1-1-amd64.deb
 
 $ pandoc -v
-pandoc 2.9.2.1
+pandoc 2.10
 ...
 ```
 
