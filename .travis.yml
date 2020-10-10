@@ -5,8 +5,7 @@ cache: apt
 env:
   global:
     - PANDOC_VERSION=2.10.1
-    - PANDOC_CROSSREF_VERSION=0.3.7.0a
-    - CROSSREF_PANDOC_VERSION=2.10.1
+    - PANDOC_CROSSREF_VERSION=0.3.8.1
 
 addons:
   apt:
@@ -29,7 +28,7 @@ addons:
 install:
   - wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb -O pandoc.deb
   - sudo dpkg -i pandoc.deb
-  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/pandoc-crossref-Linux-${CROSSREF_PANDOC_VERSION}.tar.xz -O pandoc-crossref.tar.xz
+  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/pandoc-crossref-Linux.tar.xz -O pandoc-crossref.tar.xz
   - tar xf pandoc-crossref.tar.xz
   - sudo mv pandoc-crossref /usr/local/bin
 
