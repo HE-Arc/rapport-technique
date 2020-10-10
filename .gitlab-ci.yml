@@ -1,9 +1,8 @@
 image: laurenss/texlive-full
 
 variables:
-  PANDOC_VERSION: "2.9.2.1"
-  PANDOC_CROSSREF_VERSION: "0.3.6.3"
-  CROSSREF_PANDOC_VERSION: "2.9.2.1"
+  PANDOC_VERSION: "2.10.1"
+  PANDOC_CROSSREF_VERSION: "0.3.8.1"
 
 stages:
   - build
@@ -28,8 +27,8 @@ build:
     https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb
   - dpkg -i pandoc-${PANDOC_VERSION}-1-amd64.deb
   - curl --fail --remote-name -L
-    https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/pandoc-crossref-Linux-${CROSSREF_PANDOC_VERSION}.tar.xz
-  - tar xf pandoc-crossref-Linux-${CROSSREF_PANDOC_VERSION}.tar.xz
+    https://github.com/lierdakil/pandoc-crossref/releases/download/v${PANDOC_CROSSREF_VERSION}/pandoc-crossref.tar.xz
+  - tar xf pandoc-crossref-Linux.tar.xz
   - mv pandoc-crossref /usr/local/bin
   - make all
 
