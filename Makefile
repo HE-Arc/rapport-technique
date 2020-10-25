@@ -11,7 +11,7 @@ all: $(ALL)
 		--pdf-engine xelatex \
 		--lua-filter english.lua \
 		--filter pandoc-crossref \
-		--filter pandoc-citeproc \
+		--citeproc \
 		--variable documentclass=scrreprt \
 		--variable mainfont="Linux Libertine O" \
 		--variable sansfont="Linux Biolinum O" \
@@ -26,7 +26,7 @@ all: $(ALL)
 		--pdf-engine xelatex \
 		--lua-filter english.lua \
 		--filter pandoc-crossref \
-		--filter pandoc-citeproc \
+		--citeproc \
 		--variable documentclass=report \
 		--variable mainfont="TeX Gyre Pagella" \
 		--variable monofont="TeX Gyre Cursor" \
@@ -40,7 +40,7 @@ all: $(ALL)
 		--pdf-engine xelatex \
 		--lua-filter english.lua \
 		--filter pandoc-crossref \
-		--filter pandoc-citeproc \
+		--citeproc \
 		--variable documentclass=scrreprt \
 		--variable mainfont="Carlito" \
 		--variable sansfont="Tinos" \
