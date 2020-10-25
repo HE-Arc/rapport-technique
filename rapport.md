@@ -210,7 +210,6 @@ Depuis un terminal, installez quelques dépendances à l'aide d'`apt`.
 ```bash
 $ sudo apt install \
     pandoc \
-    pandoc-citeproc \
     texlive-fonts-extra \
     texlive-lang-english \
     texlive-lang-french \
@@ -222,7 +221,6 @@ Quoi est quoi?
 
 - `\` évite de tout avoir sur seule ligne, c'est une astuce pour mettre de longues commandes dans un fichier imprimable tel que celui-ci;
 - `pandoc` convertit des formats textes en d'autres, ici de _Markdown_ vers \LaTeX;
-- `pandoc-citeproc` gère les citations et la bibliographie;
 - `texlive-fonts-extra` plein de polices de caractères;
 - `texlive-lang-english` les bouts de code source seront en anglais;
 - `texlive-lang-french` notre contenu sera en français;
@@ -231,7 +229,7 @@ Quoi est quoi?
 
 ### Pandoc nightly
 
-Les versions fournies avec Ubuntu Focal (20.04) peuvent être un peu vieilles. Une alternative est d'installer `pandoc` (et `pandoc-citeproc`) directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
+Les versions fournies avec Ubuntu Focal (20.04) peuvent être un peu vieilles. Une alternative est d'installer `pandoc` directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
 
 ```bash
 $ pandoc -v
@@ -352,9 +350,9 @@ monofontoptions: Scale=0.8  # Pour ceux qui écrivent en Java
 Sous GNU/Linux, les polices sont généralement installées dans `/usr/share/fonts`. Et `apt` permet d'en installer tout un tas d'autres de bonne facture via `texlive-fonts-extra`. La famille [Linux Libertine](http://www.linuxlibertine.org/) est utilisée dans ce document.
 
 
-## Bibliographie avec _pandoc-citeproc_
+## Bibliographie avec _citeproc_
 
-Le format \LaTeX possède un outil, ou de nombreux outils, permettant de gérer les bibliographies. _pandoc-citeproc_ en supporte plusieurs dont Bib\LaTeX, le format généralement utilisé avec \LaTeX.
+Le format \LaTeX possède un outil, ou de nombreux outils, permettant de gérer les bibliographies. [_citeproc_](https://github.com/jgm/citeproc) en supporte plusieurs dont Bib\LaTeX, le format généralement utilisé avec \LaTeX.
 
 ```yaml
 ---
@@ -368,7 +366,7 @@ Création de la référence [@arc2017].
 
 ```bash
 $ pandoc rapport.md \
-    --filter pandoc-citeproc \
+    --citeproc \
     ...
 ```
 
@@ -421,7 +419,7 @@ Il est important d'exécuter le filtre des références **avant** celui des cita
 ```bash
 $ pandoc rapport.md \
     --filter pandoc-crossref \
-    --filter pandoc-citeproc \
+    --citeproc \
     ...
 ```
 
@@ -474,7 +472,7 @@ Le filtre (@lst:english) écrit en Lua change la langue utilisée dans les blocs
 $ pandoc rapport.md \
     --lua-filter english.lua \
     --filter pandoc-crossref \
-    --filter pandoc-citeproc \
+    --citeproc \
     ...
 ```
 
