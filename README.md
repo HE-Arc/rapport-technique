@@ -15,8 +15,9 @@ Le rapport a été généré selon deux styles, visualisez les PDF:
 
 - [Maël Pedretti's TechnicalReport](https://github.com/73VW/TechnicalReport), supportant le format _ReStructured Text_ (`.rst`) en entrée;
 - [Jake Zimmerman's Pandoc Starter](https://github.com/jez/pandoc-starter), et [l'article associé](https://blog.jez.io/reach-for-markdown/);
-- [Matthias Endler's Pandoc Memoir](https://github.com/mre/pandoc-memoir), dont le but étant d'inclure du R.
-- [Pascal Wagler's Eisvogel](https://github.com/Wandmalfarbe/pandoc-latex-template), qui s'addresse plus à des séries d'exercices, notes que des gros rapports.
+- [Matthias Endler's Pandoc Memoir](https://github.com/mre/pandoc-memoir), dont le but étant d'inclure du R;
+- [Pascal Wagler's Eisvogel](https://github.com/Wandmalfarbe/pandoc-latex-template), qui s'addresse plus à des séries d'exercices, notes que des gros rapports;
+- [Tom Pollard's PhD thesis in Markdown](https://github.com/tompollard/phd_thesis_markdown), conçu pour une thèse à l'_University College London_, très complet et multi-fichiers.
 
 ## Remerciements
 
