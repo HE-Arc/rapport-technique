@@ -15,7 +15,6 @@ addons:
       - fonts-crosextra-carlito
       - fonts-inconsolata
       - fonts-texgyre
-      - latex-xcolor
       - lmodern
       - make
       - tex-gyre
