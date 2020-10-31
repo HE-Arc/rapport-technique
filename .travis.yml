@@ -13,6 +13,7 @@ addons:
     packages:
       - fonts-croscore
       - fonts-crosextra-carlito
+      - fonts-linuxlibertine
       - fonts-inconsolata
       - fonts-texgyre
       - lmodern
