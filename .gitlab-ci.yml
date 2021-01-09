@@ -1,8 +1,8 @@
-image: laurenss/texlive-full
+image: greut/texlive-full
 
 variables:
-  PANDOC_VERSION: "2.11.0.4"
-  PANDOC_CROSSREF_VERSION: "0.3.8.3a"
+  PANDOC_VERSION: "2.11.3.2"
+  PANDOC_CROSSREF_VERSION: "0.3.9.0a"
 
 stages:
   - build
@@ -23,6 +23,7 @@ build:
     fonts-texgyre
     lmodern
     tex-gyre
+    xz-utils
   - curl --fail --remote-name -L
     https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb
   - dpkg -i pandoc-${PANDOC_VERSION}-1-amd64.deb
