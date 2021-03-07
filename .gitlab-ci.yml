@@ -1,8 +1,8 @@
 image: greut/texlive-full
 
 variables:
-  PANDOC_VERSION: "2.11.3.2"
-  PANDOC_CROSSREF_VERSION: "0.3.9.0a"
+  PANDOC_VERSION: "2.11.4"
+  PANDOC_CROSSREF_VERSION: "0.3.9.1"
 
 stages:
   - build
