@@ -38,7 +38,7 @@ jobs:
     - stage: build
       script: make all
     - stage: deploy
-      if: branch = master
+      if: branch = main
       script: |
         (
           make all
@@ -61,5 +61,5 @@ jobs:
           touch .nojekyll
           git add .
           git commit -m "Deployed to github pages"
-          git push -f -q "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}" master:gh-pages
+          git push -f -q "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}" main:gh-pages
         )
