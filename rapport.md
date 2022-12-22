@@ -138,7 +138,7 @@ liste
 
 L'avantage à utiliser du texte est qu'il est aisé à versionner (`svn`, `git`, etc.) et qu'il sépare les tâches de rédaction et de mise en forme. Notre cerveau, en mode écriture, est ainsi libre dans sa créativité et ne s'occupe pas de la mise en page.
 
-_GitHub_ est un grand utilisateur du format _Markdown_ et propose un [guide utile](https://guides.github.com/features/mastering-markdown/) à son apprentissage. En matière d'édition collaborative, [_HackMD.io_](https://hackmd.io/new) propose un système proche de _Google Docs_.
+_GitHub_ est un grand utilisateur du format _Markdown_ et propose un [guide utile](https://guides.github.com/features/mastering-markdown/) à son apprentissage. En matière d'édition collaborative, [_HedgeDoc_](https://demo.hedgedoc.org/) (fork libre est ouvert de [_HackMD.io_](https://hackmd.io/new)) propose un système proche de _Google Docs_.
 
 ### Formules mathématiques
 
@@ -229,21 +229,21 @@ Quoi est quoi?
 
 ### Pandoc nightly
 
-Les versions fournies avec Ubuntu Focal (20.04) peuvent être un peu vieilles. Une alternative est d'installer `pandoc` directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
+Les versions fournies avec Ubuntu Jammy (22.04) peuvent être un peu vieilles. Une alternative est d'installer `pandoc` directement depuis [GitHub](https://github.com/jgm/pandoc/releases).
 
 ```bash
 $ pandoc -v
-pandoc 2.5
+pandoc 2.9
 
 $ sudo apt-get remove pandoc
 
 $ wget https://github.com/jgm/pandoc/releases\
-> /download/2.11.0.4/pandoc-2.11.0.4-1-amd64.deb
+> /download/2.19.2/pandoc-2.19.2-1-amd64.deb
 
-$ sudo dpkg -i pandoc-2.11.0.4-1-amd64.deb
+$ sudo dpkg -i pandoc-2.19.2-1-amd64.deb
 
 $ pandoc -v
-pandoc 2.11
+pandoc 2.19.2
 ...
 ```
 
@@ -398,19 +398,19 @@ csl: iso690-author-date-fr.csl
 Dans un document scientifique, il est recommandé de numéroter et référencer toutes les figures, et tables de données. Une tâche qui est un peu fastidieuse. Elle devient presque aisée à l'aide d'un outil comme [_pandoc-crossref_](https://github.com/lierdakil/pandoc-crossref).
 
 ```bash
-# Pandoc 2.5
-$ wget https://github.com/lierdakil/pandoc-crossref/releases\
-> /download/v0.3.4.2/linux-pandoc_2_7_3.tar.gz
-$ tar xf linux-pandoc_2_7_3.tar.gz
-
-# Pandoc 2.9.2.1
+# Pandoc 2.9
 $ wget https://github.com/lierdakil/pandoc-crossref/releases\
 > /download/v0.3.6.3/pandoc-crossref-Linux-2.9.2.1.tar.xz
 $ tar xf pandoc-crossref-Linux_2.9.2.1.tar.xz
 
+# Pandoc 2.19.2
+$ wget https://github.com/lierdakil/pandoc-crossref/releases\
+> /download/v0.3.14.0/pandoc-crossref-Linux.tar.xz
+$ tar xf pandoc-crossref-Linux.tar.xz
+
 # Installation
-$ sudo mv pandoc-crossref /usr/local/bin/
-$ sudo mv pandoc-crossref.1 /usr/local/man/
+$ sudo install -m0755 pandoc-crossref /usr/local/bin/
+$ sudo install -m0644 pandoc-crossref.1 /usr/local/man/
 $ sudo mandb
 ```
 
